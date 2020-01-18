@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/elijahsawyers/CheckPoints/master/public/icon.png?token=AE63YIVTN3OVUVWCHC5WWC26FPGIE" width=250 height=250/>
+</p>
+
 # CheckPoints
 > Learn by doing!
 
