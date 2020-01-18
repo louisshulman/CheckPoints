@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Menu, Icon, Button } from 'antd';
 import './index.css';
 
-const Header = () => {
+const Header = props => {
   return (
     <Layout.Header className="header">
       {
@@ -19,12 +19,13 @@ const Header = () => {
       }
       <Menu
         mode="horizontal"
-        defaultSelectedKeys={['1']}
         className="nav-buttons"
+        defaultSelectedKeys={['STORE']}
+        onClick={props.onNavChange}
       >
-        <Menu.Item key="1">Store</Menu.Item>
-        <Menu.Item key="2">My Courses</Menu.Item>
-        <Menu.Item key="3">Course Creator</Menu.Item>
+        <Menu.Item key="STORE">Store</Menu.Item>
+        <Menu.Item key="MY COURSES">My Courses</Menu.Item>
+        <Menu.Item key="COURSE CREATOR">Course Creator</Menu.Item>
 
         {
           /*

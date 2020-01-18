@@ -1,0 +1,41 @@
+.course-creator {
+  margin: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 25px 5px rgba(0,0,0,0.25);
+  -moz-box-shadow: 5px 5px 25px 5px rgba(0,0,0,0.25);
+  box-shadow: 5px 5px 25px 5px rgba(0,0,0,0.25);
+  padding: 10px 24px;
+  padding-bottom: 26px;
+  border-radius: 10px;
+}
+
+.course-creator-header {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.subskill-input, .checkpoint-input {
+  max-width: 171px;
+}
+
+.subskill {
+  margin-top: 16px;
+}
+
+.new-checkpoint-button, .new-task-button {
+  float: right;
+}
+
+.task-input {
+  margin: 16px 0 4px 0;
+}
+
+.description-input {
+  margin-bottom: 16px;
+}
+
+.checkpoint-panel {
+  margin-top: 16px;
+}
