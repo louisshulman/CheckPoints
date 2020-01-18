@@ -1,0 +1,35 @@
+.header {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.icon {
+  height: 64px;
+  width: 64px;
+  padding: 5px;
+  float: left;
+  margin-right: 10px;
+}
+
+.nav-buttons {
+  height: 63px;
+  line-height: 61px;
+  width: 100%;
+  border-bottom: none;
+}
+
+.user-menu {
+  float: right;
+}
+
+.user-icon {
+  height: 64px;
+  width: 64px;
+  padding: 5px;
+  float: right;
+  border-radius: 50%;
+}
+
+.logout-button {
+  width: 100%;
+}
