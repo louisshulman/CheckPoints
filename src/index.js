@@ -8,14 +8,18 @@ import CourseCreator from './components/CourseCreator';
 import CourseListItem from './components/CourseListItem';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ViewCourse from './components/ViewCourse';
 
 const FEATURES = {
   STORE: 'STORE',
   MY_COURSES: 'MY COURSES',
   COURSE_CREATOR: 'COURSE CREATOR',
+  VIEW_COURSE: 'VIEW COURSE'
 };
 
 const App = () => {
+  const [courseToView, setCourseToView] = useState(null);
+  const [previousFeature, setPreviousFeature] = useState(null);
   const [feature, setFeature] = useState(FEATURES.STORE);
   const [courses, setCourses] = useState([]);
   const [myCourses, setMyCourses] = useState([]);
@@ -26,8 +30,10 @@ const App = () => {
 
   const courseOnSelectHandler = (e, isSelected, course) => {
     if (isSelected) {
+      course.isSelected = true;
       setMyCourses(currentCourses => currentCourses.concat([course]))
     } else {
+      course.isSelected = false;
       setMyCourses(currentCourses => {
         return currentCourses.filter(courseI => courseI.id !== course.id)
       })
@@ -38,10 +44,23 @@ const App = () => {
     setCourses(currentCourses => currentCourses.concat([course]))
   };
 
+  const onViewCourseHandler = (course) => {
+    setCourseToView(course);
+    setPreviousFeature(feature);
+    setFeature(FEATURES.VIEW_COURSE);
+  }
+
+  const onBackHandler = () => {
+    setFeature(previousFeature);
+  };
+
   let content;
   switch (feature) {
     case FEATURES.COURSE_CREATOR:
       content = <CourseCreator newCourseHandler={newCourseHandler} courses={courses} />;
+      break;
+    case FEATURES.VIEW_COURSE:
+      content = <ViewCourse course={courseToView} onBack={onBackHandler} />;
       break;
     case FEATURES.MY_COURSES:
       content = myCourses.map((course) => {
@@ -52,6 +71,7 @@ const App = () => {
             onSelectHandler={(e, isSelected) => {
               courseOnSelectHandler(e, isSelected, course)
             }}
+            onViewCourse={onViewCourseHandler.bind(null, course)}
           />
         );
       });
@@ -65,6 +85,7 @@ const App = () => {
             onSelectHandler={(e, isSelected) => {
               courseOnSelectHandler(e, isSelected, course)
             }}
+            onViewCourse={onViewCourseHandler.bind(null, course)}
           />
         );
       });

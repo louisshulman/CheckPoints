@@ -19,7 +19,7 @@
   margin-bottom: 0.5em;
 }
 
-.add-button {
+.add-button, .view-button {
   margin-top: 0.5em;
   width: 100%;
 }

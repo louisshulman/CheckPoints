@@ -17,22 +17,31 @@ const CourseListItem = props => {
       <Typography.Text>{props.course.description}</Typography.Text>
       {
         isSelected
-        ? <Button
-            onClick={(e) => {
-              setIsSelected(false);
-              props.onSelectHandler(e, false)
-            }}
-            onMouseEnter={hoverHandler}
-            onMouseLeave={hoverHandler}
-            type="primary"
-            className="add-button selected"
-          >
-            {
-              isHovering
-              ? <Typography.Text className="selected-text">Remove Course <Icon type="close" /></Typography.Text>
-              :  <Typography.Text className="selected-text">Owned <Icon type="check" /></Typography.Text>
-            }
-          </Button>
+        ? <div>
+            <Button
+              onClick={(e) => {
+                setIsSelected(false);
+                props.onSelectHandler(e, false)
+              }}
+              onMouseEnter={hoverHandler}
+              onMouseLeave={hoverHandler}
+              type="primary"
+              className="add-button selected"
+            >
+              {
+                isHovering
+                ? <Typography.Text className="selected-text">Remove Course <Icon type="close" /></Typography.Text>
+                : <Typography.Text className="selected-text">Owned <Icon type="check" /></Typography.Text>
+              }
+            </Button>
+            <Button
+              type="primary"
+              className="view-button"
+              onClick={props.onViewCourse}
+            >
+              View Course
+            </Button>
+          </div>
         : <Button
             onClick={(e) => {
               setIsSelected(true);
