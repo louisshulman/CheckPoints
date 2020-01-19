@@ -4,11 +4,7 @@ import './index.css';
 
 const CourseListItem = props => {
   const [isSelected, setIsSelected] = useState(props.course.isSelected);
-  const [isHovering, setIsHovering] = useState(true);
-
-  const hoverHandler = () => {
-    setIsHovering(currentHovering => !currentHovering);
-  }
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <div className="container">
@@ -23,8 +19,8 @@ const CourseListItem = props => {
                 setIsSelected(false);
                 props.onSelectHandler(e, false)
               }}
-              onMouseEnter={hoverHandler}
-              onMouseLeave={hoverHandler}
+              onMouseEnter={() => {setIsHovering(true)}}
+              onMouseLeave={() => {setIsHovering(false)}}
               type="primary"
               className="add-button selected"
             >
